@@ -456,6 +456,86 @@ public class week2 {
     // }
 
 
+    /*
+    
+    A retail company tracks the daily profit (which can be positive or negative) from a week-long festival sale.
+    Management wants to analyze how many continuous periods of days produced a total profit exactly equal to a target value K.
+
+    Your task is to determine how many such continuous subarrays exist.
+
+    A subarray means a continuous sequence of days.
+
+    Input Format:
+    -------------
+
+    First line contains two integers:
+    N K
+
+    N → number of days
+    K → target profit
+
+    Second line contains N space-separated integers representing daily profit values.
+
+    Output Format:
+    --------------
+
+    Print a single integer representing the number of continuous subarrays whose total profit equals K.
+
+    Sample Input-1:
+    ---------------
+
+    5 5
+    1 2 3 -2 5
+
+    Sample Output-1:
+    ----------------
+
+    2
+
+    Explanation:
+    ------------
+
+    Subarrays with sum = 5
+
+    [2,3]  
+    [5]
+
+    So total = 2
+
+
+    Sample Input-2:
+    ---------------
+
+    4 3
+    1 1 1 1
+
+    Sample Output-2:
+    ----------------
+
+    2
+    */
+
+    public static void main(String[] args) {
+        // int[] arr = new int[]{1,2,3,4,5};
+        int[] arr = new int[]{1,1,1,1};
+        int tsum = 3;
+        int j=0,i=0,cnt=0;
+        int sum = 0;
+        while(j<arr.length){
+            sum+=arr[j];
+            while(tsum<sum){
+                sum = sum - arr[i];
+                i++;
+            }
+            // System.out.println(sum);
+            if(sum==tsum){
+                cnt++;
+            }
+            
+            j++;
+        }
+        System.out.println(cnt);
+    }
 
     
 }
