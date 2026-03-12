@@ -1,3 +1,4 @@
+
 public class week2 {
 
     /*
@@ -440,6 +441,7 @@ public class week2 {
     100
     */
 
+    
     // public static void main(String[] args) {
     //     int[] arr = new int[]{2,4,1,5,3};
     //     int[][] q = new int[][]{{0,2},{1,3},{2,4}};
@@ -458,6 +460,8 @@ public class week2 {
 
     /*
     
+    DATE:11-02-2026(P3)}
+
     A retail company tracks the daily profit (which can be positive or negative) from a week-long festival sale.
     Management wants to analyze how many continuous periods of days produced a total profit exactly equal to a target value K.
 
@@ -515,27 +519,140 @@ public class week2 {
     2
     */
 
-    public static void main(String[] args) {
-        // int[] arr = new int[]{1,2,3,4,5};
-        int[] arr = new int[]{1,1,1,1};
-        int tsum = 3;
-        int j=0,i=0,cnt=0;
-        int sum = 0;
-        while(j<arr.length){
-            sum+=arr[j];
-            while(tsum<sum){
-                sum = sum - arr[i];
-                i++;
-            }
-            // System.out.println(sum);
-            if(sum==tsum){
-                cnt++;
-            }
+    // public static void main(String[] args) {
+    //     int[] arr = new int[]{1,2,3,-2,5};
+    //     // int[] arr = new int[]{1,1,1,1};
+    //     int tsum = 5;
+    //     int j=0,i=0,cnt=0;
+    //     int sum = 0;
+    //     while(j<arr.length){
+    //         sum+=arr[j];
+    //         while(tsum<sum){
+    //             sum = sum - arr[i];
+    //             i++;
+    //         }
+    //         // System.out.println(sum);
+    //         if(sum==tsum){
+    //             cnt++;
+    //         }
             
-            j++;
+    //         j++;
+    //     }
+    //     System.out.println(cnt);
+    // }
+
+
+
+    // public static void main(String[] args) {
+    //     int[] arr = new int[]{1,2,3,-2,5};
+    //     int k = 5;
+    //     HashMap<Integer, Integer> map = new HashMap<>();
+    //     map.put(0, 1);
+
+    //     int sum = 0;
+    //     int count = 0;
+
+    //     for(int num : arr) {
+    //         sum += num;
+
+    //         if(map.containsKey(sum - k)) {
+    //             count += map.get(sum - k);
+    //         }
+
+    //         map.put(sum, map.getOrDefault(sum, 0) + 1);
+    //     }
+
+    //     System.out.println(count);
+    // }
+
+
+
+    /*
+    A number is called a Lucky Number if the following transformation process 
+    eventually reaches the number 1.
+
+    Starting with a positive integer N:
+
+    1. Replace the number with the sum of the squares of its digits.
+    2. Repeat the same transformation with the newly obtained number.
+
+    If the sequence eventually reaches 1, the number is considered Lucky.
+    If the sequence enters a repeating cycle that never reaches 1, the number
+    is not Lucky.
+
+    You must determine whether the given number N is a Lucky Number.
+
+    Note:
+    The solution must be implemented using recursion to repeatedly apply 
+    the transformation until either 1 is reached or a cycle is detected.
+
+    Input Format:
+    -------------
+
+    A single integer N.
+
+    Output Format:
+    --------------
+
+    Print true if N is a Lucky Number.
+    Otherwise print false.
+
+    Sample Input-1:
+    ---------------
+
+    19
+
+    Sample Output-1:
+    ----------------
+
+    true
+
+    Explanation:
+    ------------
+
+    19 → 82 → 68 → 100 → 1
+
+    Since the sequence reaches 1, the number is a Lucky Number.
+
+
+    Sample Input-2:
+    ---------------
+
+    2
+
+    Sample Output-2:
+    ----------------
+
+    false
+    
+    */
+
+    public static int r(int n){
+        if(n==1 || n==4){
+            return n;
         }
-        System.out.println(cnt);
+        int sum = 0;
+        while(n>0){
+            int re = n%10;
+            sum = sum+(re*re);
+            n = n/10;
+        }
+        return r(sum);
     }
 
+    public static boolean happy(int n){
+        n = r(n);
+        System.out.println(n);
+        if(n==1){
+            return true;
+        }
+        return false;
+    }
     
+    public static void main(String[] args) {
+        boolean b = happy(19);
+        System.out.println(b);
+    }
+
+
 }
