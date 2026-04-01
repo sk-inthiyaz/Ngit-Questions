@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class week2 {
 
     /*
@@ -803,17 +803,40 @@ public class week2 {
      * 5
      */
 
-    public static void main(String[] args) {
-        int n = countways(4);
-        System.out.println(n);
-    }
+    // public static void main(String[] args) {
+    //     int n = countways(4);
+    //     System.out.println(n);
+    // }
 
-    public static int countways(int n) {
-        if (n <= 1)
-            return 1;
-        if (n == 2)
-            return 2;
-        return countways(n - 1) + countways(n - 2);
+    // public static int countways(int n) {
+    //     if (n <= 1)
+    //         return 1;
+    //     if (n == 2)
+    //         return 2;
+    //     return countways(n - 1) + countways(n - 2);
+    // }
+
+    // Q.)Factors of a given number 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> li = new ArrayList<>();
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                li.add(i);
+            }
+        }
+        System.out.println(li);
+
+
+        //12acd3
+        //Only digits 
+        // String s = "12acdA3";
+        // for(char c:s.toCharArray()){
+        //     if(!((c>='a' && c<='z') || (c>='A' && c<='Z'))){
+        //         System.out.print(c+" ");
+        //     }
+        // }
     }
                               
 }
